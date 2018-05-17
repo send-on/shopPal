@@ -1,1 +1,10 @@
-.main{font-weight:700}
+.main {
+  font-weight: bold;
+}
+.headerContainer {
+  height: 2em;
+  background-color: grey;
+}
+.mainContainer {
+  font-family: 'Open Sans', sans-serif;
+}
