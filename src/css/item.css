@@ -1,3 +1,14 @@
-.item-container {
+.item-container{
+  display: flex;
+  flex-direction: row;
+}
 
+.item-text {
+  display: block;
+}
+
+.item-image{
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }

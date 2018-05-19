@@ -27,16 +27,28 @@ class App extends React.Component<Props> {
 	constructor(props) {
 		super(props);
 		this.state = {
-			window: 'lists',
+			window: 'about',
 			lists: [
-				{title: "Coworkers", items: [{id: 1, store: 'Safeway', item: "Juice"}]},
-				{title: "Roomates", items: [{id: 1, store: 'Safeway', item: "Juice"}]}
+				{title: "Coworkers", items: [{id: 1, store: 'Safeway', item: "Juice", type: "beverage"},
+					{id: 2, store: 'Safeway', item: "Bread", type: "pastry"},
+					{id: 2, store: 'Safeway', item: "Coke", type: "beverage"},
+					{id: 2, store: 'Safeway', item: "Meat", type: "meat"},
+					{id: 2, store: 'Safeway', item: "Cookies", type: "dessert"},
+				 	{id: 3, store: 'Safeway', item: "Cats", type: "misc"}]},
+				{title: "Roomates", items: [{id: 1, store: 'Safeway', item: "Juice", type: "beverage"}]}
 			]
 		}
+		this._handleWindowChange = this._handleWindowChange.bind(this);
 	}
 
 	componentDidMount() {
+	}
 
+	_handleWindowChange(tab) {
+		console.log(tab)
+		this.setState({
+			window: tab
+		})
 	}
 
 	render() {
@@ -54,27 +66,28 @@ class App extends React.Component<Props> {
     }
 		return (
 			<div className="main-container">
-				<Header />
+				<Header
+				_handleWindowChange={this._handleWindowChange}/>
 				<AnnouncementBanner />
 				{component}
 
-				<Footer copyrights="&copy 2015 Copyright Text"
+				<Footer copyrights="Copyright 2018 ShopPal Inc."
 				  moreLinks={
-				    <a className="grey-text text-lighten-4 right" href="#!">More Links</a>
+				    <a className="grey-text text-lighten-4 right" href="#!">Social Media</a>
 				  }
 				  links={
 				    <ul>
-				      <li><a className="grey-text text-lighten-3" href="#!">Link 1</a></li>
-				      <li><a className="grey-text text-lighten-3" href="#!">Link 2</a></li>
-				      <li><a className="grey-text text-lighten-3" href="#!">Link 3</a></li>
-				      <li><a className="grey-text text-lighten-3" href="#!">Link 4</a></li>
+				      <li><a className="grey-text text-lighten-3" href="#!">Help</a></li>
+				      <li><a className="grey-text text-lighten-3" href="#!">FAQ</a></li>
+				      <li><a className="grey-text text-lighten-3" href="#!">Contact Us</a></li>
+				      <li><a className="grey-text text-lighten-3" href="#!">Terms and Conditions</a></li>
 				    </ul>
 				  }
 				  className='main-footer'
 					>
-				    <h5 className="white-text">Footer Content</h5>
-				    <p className="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-				</Footer>;
+				    <h5 className="white-text">ShopPal</h5>
+				    <p className="grey-text text-lighten-4">The Future of the Shopping List.</p>
+				</Footer>
 
 			</div>
 

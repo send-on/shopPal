@@ -10,7 +10,7 @@ type Props = {||};
 
 const About = () => (
   <div className="about-container">
-    CONTENT
+    Please Login to see your Lists!
   </div>
 )
 

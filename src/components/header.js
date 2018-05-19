@@ -4,7 +4,7 @@ import { Icon, Button } from 'react-materialize';
 
 require('../css/header.css');
 
-const Header = () => (
+const Header = ({_handleWindowChange}) => (
   <div className="main-container">
     <div className="header-container">
       <div className="header-left">
@@ -19,13 +19,13 @@ const Header = () => (
       </div>
       <div className="header-right">
         <div className="header-icon">
-          <Icon small>store</Icon>
+          <Icon small >store</Icon>
         </div>
-        <div className="header-icon">
-          <Icon small>library_books</Icon>
+        <div className="header-icon" onClick={() => _handleWindowChange('lists')}>
+          <Icon small >library_books</Icon>
         </div>
-        <div className="header-icon">
-          <Icon small>group</Icon>
+        <div className="header-icon" onClick={() => _handleWindowChange('about')}>
+          <Icon small >group</Icon>
         </div>
       </div>
     </div>

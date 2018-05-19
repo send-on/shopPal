@@ -6,14 +6,16 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
+import AddIcon from '@material-ui/icons/Add';
 import Typography from '@material-ui/core/Typography';
+
 
 require('../css/item.css');
 
 const styles = {
   card: {
     maxWidth: 200,
-    maxHeight: 400,
+    maxHeight: 350,
   },
   media: {
     height: 0,
@@ -21,55 +23,51 @@ const styles = {
   },
 };
 
-function Item(props) {
-  const { classes, item } = props;
-  let imageUrl = 'https://s3-us-west-1.amazonaws.com/shoppal/bowser.jpg';
-    if (item.type === 'meat') {
-      imageUrl = 'https://s3-us-west-1.amazonaws.com/shoppal/meat.png'
-    } else if (item.type === 'dessert') {
-      imageUrl = 'https://s3-us-west-1.amazonaws.com/shoppal/dessert.png'
-    } else if (item.type === 'pastry') {
-      imageUrl = 'https://s3-us-west-1.amazonaws.com/shoppal/bread.jpg'
-    } else if (item.type === 'beverage') {
-      imageUrl = 'https://s3-us-west-1.amazonaws.com/shoppal/juice.jpg'
-    }
 
+function NewItem(props) {
+  const { classes } = props;
   return (
     <div>
       <Card className={classes.card}>
-        <CardMedia
+        {/* <CardMedia
           className={classes.media}
-          image={imageUrl}
-          title="Contemplative Reptile"
-        />
+          image='https://s3-us-west-1.amazonaws.com/shoppal/juice.jpg'
+          // image="https://s3-us-west-1.amazonaws.com/shoppal/addbutton.png"
+          title="Add New Item"
+        /> */}
         <CardContent>
-          <Typography gutterBottom variant="headline" component="h2">
-            {item.item}
+          <Typography gutterBottom variant="headline" component="h4">
+            Add new Item
           </Typography>
           <Typography component="p">
-            <p><b>Store:</b> {item.store}</p>
-            <p><b>Quantity:</b> 5</p>
-            <p><b>Who Wants:</b> Oliver</p>
+            <p>Store: </p>
+            <p>Item: </p>
+            <p>QTY: </p>
+            <p>Type: </p>
+
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small" color="primary">
-            Add One
+          <Button variant="fab" color="primary" aria-label="add" className={classes.button}>
+            <AddIcon />
           </Button>
-          <Button size="small" color="primary">
-            Minus One
-          </Button>
+          {/* <Button size="small" color="primary">
+            Add to List
+          </Button> */}
+          {/* <Button size="small" color="primary">
+            Learn More
+          </Button> */}
         </CardActions>
       </Card>
     </div>
   );
 }
 
-Item.propTypes = {
+NewItem.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Item);
+export default withStyles(styles)(NewItem);
 
 
 

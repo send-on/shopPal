@@ -8,6 +8,8 @@
     "dev": "./node_modules/.bin/webpack-dev-server -d --host 0.0.0.0 --config webpack.config.js --content-base src/ --colors --hot --progress --inline --watch"
   },
   "dependencies": {
+    "@material-ui/core": "^1.0.0",
+    "@material-ui/icons": "^1.0.0",
     "body-parser": "^1.14.0",
     "cookie-parser": "~1.0.1",
     "ejs": "^2.3.4",

@@ -7,7 +7,7 @@ require('../css/lists.css');
 
 const Lists = ({ lists }) => (
   <div className="lists-container">
-    My lists
+    <div className="lists-header">All Lists</div>
     {lists.map((list, index) =>
      <List
      key={index}

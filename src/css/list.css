@@ -7,3 +7,20 @@
   padding-top: 1em;
   padding-bottom: 1em;
 }
+
+.list-title {
+  padding-bottom: 0.5em;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.list-item-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(12em, 1fr));
+  gap: 1em;
+}
+
+.list-item-col {
+  flex: 1;
+  margin-right: 1em;
+}
