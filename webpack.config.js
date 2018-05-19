@@ -1,4 +1,3 @@
-// This file configures webpack to run on the production files
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 

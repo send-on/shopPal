@@ -1,10 +1,67 @@
-.main {
+.about-container {
+}
+.header-container {
+  margin-left: auto;
+  margin-right: auto;
+  height: 4em;
+
+  display: flex;
+  flex-direction: row;
+  vertical-align: middle;
+  font-size: 18px;
+}
+
+.header-left {
+  text-align: left;
+  width: 33%;
+  margin-left: 2em;
+  line-height: 5em;
+}
+
+.header-center {
+  text-align: center;
+  width: 33%;
+  margin-left: 2em;
+  line-height: 4em;
+}
+
+.header-right {
+  width: 33%;
+  text-align: right;
+  margin-right: 2em;
+  line-height: 5em;
+}
+
+.header-icon {
+  display: inline-block;
+  padding-left: 1.5em;
+}
+
+.header-text {
+  display: inline-block;
+  font-size: 14px;
   font-weight: bold;
+  line-height: 4em;
+  padding-left: 1em;
 }
-.headerContainer {
-  height: 2em;
-  background-color: grey;
+.announcement-container {
+  /* border-top: 2px solid black;
+  border-bottom: 2px solid black; */
+  height: 20em;
+  background-image: url("https://s3-us-west-1.amazonaws.com/shoppal/announcement.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
-.mainContainer {
+body{
+  background-color: #2d3c48
+}
+
+.main-container{
   font-family: 'Open Sans', sans-serif;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  max-width: 100em;
+  background-color: #fff;
 }

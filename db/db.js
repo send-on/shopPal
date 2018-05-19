@@ -1,44 +1,57 @@
-var mysql = require('mysql');
 
-//Configuration for mysql db
 const HOST = 'localhost';
 const USER = 'user';
 const PASSWORD = 'password';
 const DATABASE = 'database';
 
-var connection = mysql.createConnection({
-  host     : HOST,
-  user     : USER,
-  password : PASSWORD,
-  database : DATABASE,
+const mongoose = require('mongoose');
+const mongoUrl = `mongodb://${HOST}/${DATABASE}`;
+
+mongoose.connect(mongoUrl); // Try localhost first
+// mongoose.connect(mongoUrl); // Try localhost first
+mongoose.connection.on('connected', () => {
 });
 
-connection.connect(function(err) {
-  if (err) {
-    console.error('error connecting: ' + err.stack);
-    return;
-  }
-  console.log('connected as id ' + connection.threadId);
+mongoose.connection.on('error', () => {
+  console.log('error');
 });
 
-module.exports = connection;
+const mySchema = mongoose.Schema({
 
-// const promise = require('bluebird');
-// const options = { promiseLib: promise };
-// const pgp = require('pg-promise')(options);
+})
+
+
+
+// module.exports = connection;
+
+
+// const restaurantSchema = mongoose.Schema({
+//   place_id: { type: Number, unique: true },
+//   name: String,
+//   google_rating: Number,
+//   zagat_rating: Number,
+//   photos: [String],
+//   neighborhood: String,
+//   price_level: Number,
+//   types: String,
+//   nearby: [Number],
+// });
 //
-// const connectionString = 'postgres://localhost:5432/apateez';
-// // const connectionString = 'postgres://pguser:pguser@54.215.254.113:5432/apateez'; //for docker
-// const postgresql = pgp(connectionString);
+// const RestaurantModel = mongoose.model('Restaurant', restaurantSchema);
 //
-// const findOneQuery = 'SELECT * FROM nearby WHERE place_id = $1';
-// const findOne = id => postgresql.any(findOneQuery, id);
+// const findOne = id => RestaurantModel.find({ place_id: id });
 //
-// // const findManyQuery = `select * FROM nearby WHERE place_id = ANY ('{$1,$2,$3,$4,$5,$6}'::int[]);`
-// const findManyQuery = 'select * FROM nearby WHERE place_id IN ($1:list);';
-// const findMany = ids => postgresql.any(findManyQuery, [ids]);
+// const insertOne = restaurant => RestaurantModel.create(restaurant);
+//
+// const findMany = ids => RestaurantModel.find({ place_id: { $in: ids } });
+//
+// const clearDb = () => RestaurantModel.remove({});
+//
 //
 // module.exports = {
+//   RestaurantModel,
 //   findOne,
+//   insertOne,
 //   findMany,
+//   clearDb,
 // };

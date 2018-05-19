@@ -1,0 +1,9 @@
+.announcement-container {
+  /* border-top: 2px solid black;
+  border-bottom: 2px solid black; */
+  height: 20em;
+  background-image: url("https://s3-us-west-1.amazonaws.com/shoppal/announcement.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}

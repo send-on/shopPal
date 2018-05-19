@@ -2,18 +2,19 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+// import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-const {
-	browserHistory,
-  IndexRoute,
-  // Route,
-  // Router,
-} = require('react-router');
+// const {
+// 	browserHistory,
+//   IndexRoute,
+//   // Route,
+//   // Router,
+// } = require('react-router');
 
 // components
-import Index from './index';
-import Header from './header';
+import About from './components/about';
+import Header from './components/header';
+import AnnouncementBanner from './components/announcement';
 
 // css
 require('./css/app.css');
@@ -21,16 +22,37 @@ require('./css/app.css');
 type Props = {||};
 
 class App extends React.Component<Props> {
+	constructor(props) {
+		super(props);
+		this.state = {
+			window: 'about',
+		}
+	}
+
+	componentDidMount() {
+
+	}
+
 	render() {
+    let component = null;
+    switch(this.state.window) {
+      case 'about':
+        component = <About myState={this.state.window}/>
+        break;
+      case 'lists':
+        // component = <Lists lists={this.state.stories}/>
+        break;
+			case 'groups':
+        // component = <Groups groups={this.state.stories}/>
+        break;
+    }
 		return (
-			<Router history={browserHistory}>
-				<div className="mainContainer">
-					<Route path="/" component={Header}/>
+			<div className="main-container">
+				<Header />
+				<AnnouncementBanner />
+				{component}
+			</div>
 
-
-					<Route exact path="/" component={Index}/>
-				</div>
-			</Router>
 		)
 	}
 }
@@ -42,3 +64,7 @@ if (dom === null) {
 } else {
 	ReactDOM.render(<App />, dom);
 }
+
+// history={browserHistory}
+// {/* <Route exact path="/" component={Index}/>
+// <Route path="/" component={Header}/> */}
