@@ -2,7 +2,6 @@
   margin-left: auto;
   margin-right: auto;
   height: 4em;
-
   display: flex;
   flex-direction: row;
   vertical-align: middle;
@@ -12,21 +11,21 @@
 .header-left {
   text-align: left;
   width: 33%;
-  margin-left: 2em;
+  margin-left: 1em;
   line-height: 5em;
 }
 
 .header-center {
   text-align: center;
   width: 33%;
-  margin-left: 2em;
+  
   line-height: 4em;
 }
 
 .header-right {
   width: 33%;
   text-align: right;
-  margin-right: 2em;
+  margin-right: 1em;
   line-height: 5em;
 }
 

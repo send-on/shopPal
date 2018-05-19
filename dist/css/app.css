@@ -4,7 +4,6 @@
   margin-left: auto;
   margin-right: auto;
   height: 4em;
-
   display: flex;
   flex-direction: row;
   vertical-align: middle;
@@ -14,21 +13,21 @@
 .header-left {
   text-align: left;
   width: 33%;
-  margin-left: 2em;
+  margin-left: 1em;
   line-height: 5em;
 }
 
 .header-center {
   text-align: center;
   width: 33%;
-  margin-left: 2em;
+  
   line-height: 4em;
 }
 
 .header-right {
   width: 33%;
   text-align: right;
-  margin-right: 2em;
+  margin-right: 1em;
   line-height: 5em;
 }
 
@@ -48,10 +47,52 @@
   /* border-top: 2px solid black;
   border-bottom: 2px solid black; */
   height: 20em;
-  background-image: url("https://s3-us-west-1.amazonaws.com/shoppal/announcement.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  /* line-height: 20em;
+  vertical-align: middle; */
+  text-align: center;
+  background-image: linear-gradient(
+                     rgba(20,20,20, .69),
+                     rgba(20,20,20, .69)),
+                     url('https://s3-us-west-1.amazonaws.com/shoppal/bread.jpg');
+
+}
+
+.announcement-text {
+  padding: 2em;
+  color: white;
+  font-weight: 400;
+  font-size: 24px;
+  font-family: 'Open Sans', sans-serif;
+  letter-spacing: .036em;
+}
+
+.announcement-sub-text {
+  padding: 2em;
+  color: white;
+  font-weight: 300;
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: .036em;
+}
+.item-container {
+
+}
+.list-container {
+  border-radius: 3px;
+  border-top: 2px solid #F1F1F2;
+  border-bottom: 2px solid #F1F1F2;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+.lists-container {
+  background-color: #fff;
+  margin: 2em;
+  padding-bottom: 1em;
 }
 body{
   background-color: #2d3c48
@@ -59,9 +100,14 @@ body{
 
 .main-container{
   font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
   margin-left: auto;
   margin-right: auto;
   width: 80%;
   max-width: 100em;
   background-color: #fff;
+}
+
+.main-footer {
+  background-color: #1b1d1f;
 }

@@ -1,0 +1,9 @@
+.list-container {
+  border-radius: 3px;
+  border-top: 2px solid #F1F1F2;
+  border-bottom: 2px solid #F1F1F2;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}

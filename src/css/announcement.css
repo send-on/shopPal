@@ -2,8 +2,33 @@
   /* border-top: 2px solid black;
   border-bottom: 2px solid black; */
   height: 20em;
-  background-image: url("https://s3-us-west-1.amazonaws.com/shoppal/announcement.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  /* line-height: 20em;
+  vertical-align: middle; */
+  text-align: center;
+  background-image: linear-gradient(
+                     rgba(20,20,20, .69),
+                     rgba(20,20,20, .69)),
+                     url('https://s3-us-west-1.amazonaws.com/shoppal/bread.jpg');
+
+}
+
+.announcement-text {
+  padding: 2em;
+  color: white;
+  font-weight: 400;
+  font-size: 24px;
+  font-family: 'Open Sans', sans-serif;
+  letter-spacing: .036em;
+}
+
+.announcement-sub-text {
+  padding: 2em;
+  color: white;
+  font-weight: 300;
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: .036em;
 }

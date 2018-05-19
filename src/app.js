@@ -2,6 +2,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Footer } from 'react-materialize'
 // import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 // const {
@@ -15,6 +16,7 @@ import ReactDOM from 'react-dom';
 import About from './components/about';
 import Header from './components/header';
 import AnnouncementBanner from './components/announcement';
+import Lists from './components/lists';
 
 // css
 require('./css/app.css');
@@ -25,7 +27,11 @@ class App extends React.Component<Props> {
 	constructor(props) {
 		super(props);
 		this.state = {
-			window: 'about',
+			window: 'lists',
+			lists: [
+				{title: "Coworkers", items: [{id: 1, store: 'Safeway', item: "Juice"}]},
+				{title: "Roomates", items: [{id: 1, store: 'Safeway', item: "Juice"}]}
+			]
 		}
 	}
 
@@ -40,7 +46,7 @@ class App extends React.Component<Props> {
         component = <About myState={this.state.window}/>
         break;
       case 'lists':
-        // component = <Lists lists={this.state.stories}/>
+        component = <Lists lists={this.state.lists}/>
         break;
 			case 'groups':
         // component = <Groups groups={this.state.stories}/>
@@ -51,7 +57,28 @@ class App extends React.Component<Props> {
 				<Header />
 				<AnnouncementBanner />
 				{component}
+
+				<Footer copyrights="&copy 2015 Copyright Text"
+				  moreLinks={
+				    <a className="grey-text text-lighten-4 right" href="#!">More Links</a>
+				  }
+				  links={
+				    <ul>
+				      <li><a className="grey-text text-lighten-3" href="#!">Link 1</a></li>
+				      <li><a className="grey-text text-lighten-3" href="#!">Link 2</a></li>
+				      <li><a className="grey-text text-lighten-3" href="#!">Link 3</a></li>
+				      <li><a className="grey-text text-lighten-3" href="#!">Link 4</a></li>
+				    </ul>
+				  }
+				  className='main-footer'
+					>
+				    <h5 className="white-text">Footer Content</h5>
+				    <p className="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+				</Footer>;
+
 			</div>
+
+
 
 		)
 	}
