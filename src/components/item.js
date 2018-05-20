@@ -13,7 +13,7 @@ require('../css/item.css');
 const styles = {
   card: {
     maxWidth: 200,
-    maxHeight: 400,
+    height: 330,
   },
   media: {
     height: 0,

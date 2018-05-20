@@ -27,6 +27,7 @@ class App extends React.Component<Props> {
 	constructor(props) {
 		super(props);
 		this.state = {
+			user: 'Sign in',
 			window: 'about',
 			lists: [
 				{title: "Coworkers", items: [{id: 1, store: 'Safeway', item: "Juice", type: "beverage"},
@@ -67,7 +68,8 @@ class App extends React.Component<Props> {
 		return (
 			<div className="main-container">
 				<Header
-				_handleWindowChange={this._handleWindowChange}/>
+					user={this.state.user}
+					_handleWindowChange={this._handleWindowChange}/>
 				<AnnouncementBanner />
 				{component}
 

@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 
 require('../css/announcement.css');
 
-const AnnouncementBanner = () => (
-
+const AnnouncementBanner = () => {
+  return (
     <div className="announcement-container">
       <div className="announcement-text">
         Give $20, Save $20
@@ -13,7 +13,7 @@ const AnnouncementBanner = () => (
         </div>
       </div>
     </div>
-
-)
+  )
+}
 
 module.exports = AnnouncementBanner
