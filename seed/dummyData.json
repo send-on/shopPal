@@ -1,9 +1,9 @@
 [
-  {"listId": 1, "listTitle": "Coworkers", "items": [{"itemId": 1, "store": "Safeway", "item": "Juice", "type": "beverage"},
-    {"itemId": 2, "store": "Safeway", "item": "Bread", "type": "pastry"},
-    {"itemId": 2, "store": "Safeway", "item": "Coke", "type": "beverage"},
-    {"itemId": 2, "store": "Safeway", "item": "Meat", "type": "meat"},
-    {"itemId": 2, "store": "Safeway", "item": "Cookies", "type": "dessert"},
-    {"itemId": 3, "store": "Safeway", "item": "Cats", "type": "misc"}]},
-  {"listId": 2, "listTitle": "Roomates", "items": [{"itemId": 1, "store": "Ralphs", "item": "Juice", "type": "beverage"}]}
+  {"listId": 1, "listTitle": "Coworkers", "items": [{"itemId": 1, "quantity": 5, "store": "Safeway", "item": "Juice", "type": "beverage"},
+    {"itemId": 2, "quantity": 3, "store": "Safeway", "item": "Bread", "type": "pastry"},
+    {"itemId": 3, "quantity": 1, "store": "Safeway", "item": "Coke", "type": "beverage"},
+    {"itemId": 4, "quantity": 10, "store": "Safeway", "item": "Meat", "type": "meat"},
+    {"itemId": 5, "quantity": 5, "store": "Safeway", "item": "Cookies", "type": "dessert"},
+    {"itemId": 6, "quantity": 3, "store": "Safeway", "item": "Cats", "type": "misc"}]},
+  {"listId": 2, "listTitle": "Roomates", "items": [{"itemId": 1, "quantity": 9, "store": "Ralphs", "item": "Juice", "type": "beverage"}]}
 ]

@@ -16,6 +16,7 @@ class List extends React.Component<Props> {
       list: this.props.list,
     };
     this.getList = this.getList.bind(this);
+    this.modifyQuantityServer = this.modifyQuantityServer.bind(this);
   }
 
   getList(id) {
@@ -27,6 +28,22 @@ class List extends React.Component<Props> {
     })
   }
 
+  modifyQuantityServer(itemId, quantity) {
+    const listId = this.props.list.listId
+    console.log('modifyQuantityServer, listId: ', listId);
+    console.log('modifyQuantityServer, itemId: ', itemId);
+    console.log('modifyQuantityServer, quantity: ', quantity);
+    axios.patch(`/api/itemqty/${listId}`, {
+      itemId: itemId,
+      quantity: quantity
+    })
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+  }
 
   render() {
     return (
@@ -43,8 +60,9 @@ class List extends React.Component<Props> {
           {this.state.list.items.map((item, index) =>
            <Item
              className="list-item-col"
-             key={index}
-             item={item}
+             key = {index}
+             item = {item}
+             modifyQuantityServer = {this.modifyQuantityServer}
            />
          )}
        </div>

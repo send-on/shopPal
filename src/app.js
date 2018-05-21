@@ -28,7 +28,7 @@ class App extends React.Component<Props> {
 		super(props);
 		this.state = {
 			user: 'Sign in',
-			window: 'about',
+			window: 'lists',
 		};
 		this._handleWindowChange = this._handleWindowChange.bind(this);
 	}

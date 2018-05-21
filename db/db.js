@@ -45,6 +45,22 @@ const insertOneItem = (id, obj) => {
   return ListModel.update({listId: id}, {$push: {items: obj}})
 }
 
+// Modify quantity
+const modifyQuantityItem = (listId, obj) => {
+
+  itemId = obj.itemId;
+  quantity = obj.quantity;
+  console.log('db itemId, ', itemId)
+  console.log('db quantity, ', quantity)
+  return ListModel.findOneAndUpdate(
+    {
+      "listId": listId,
+      "items.itemId": itemId
+    },
+    {"$set": {"items.$.quantity": quantity}}
+  )
+}
+
 // Delete List
 const clearDb = (cb) => ListModel.remove({}, cb);
 
@@ -54,6 +70,7 @@ module.exports = {
   findAllLists,
   insertOneList,
   insertOneItem,
+  modifyQuantityItem,
   clearDb
 };
 
