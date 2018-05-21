@@ -23,7 +23,6 @@ app.get('/api/lists', (req, res) => {
   })
   .catch((err) => {
     console.log(err)
-
   })
 })
 
