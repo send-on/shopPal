@@ -13,25 +13,45 @@ app.use(express.static(path.join(__dirname, '../dist')))
 
 
 
-// Get Lists
+
+// Get one list
+app.get('/api/lists/:listId', (req, res) => {
+  const listId = req.params.listId;
+  console.log('server get one list triggered ', req.params.listId)
+  db.findOneList(listId)
+  .then((data) => {
+    console.log('get one list success data: ', data)
+    res.send(data)
+  })
+})
+
+// Get all lists
 app.get('/api/lists', (req, res) => {
-  console.log('get req')
+  console.log('server get All list triggered ')
   db.findAllLists()
   .then((data) => {
-    console.log(data)
     res.send(data)
   })
   .catch((err) => {
-    console.log(err)
+    console.log('get all lists error is ', err)
   })
 })
 
 // Add new Item
 app.patch('/api/item/:listId', (req, res) => {
   const listId = req.params.listId;
-  console.log('listId is', listId);
-  console.log(req.body)
+  console.log('add new item listId is', listId);
+  db.insertOneItem(listId, req.body)
+  .then((data) => {
+    console.log('add new item success data: ', data);
+    res.send('success patch:' + data)
+  })
+  .catch((err) => {
+    console.log('add new item error: ', err);
+  })
 })
+
+
 
 app.get('*', function(req, res) {
   res.sendFile(path.join(__dirname, '../dist/index.html'))

@@ -26,19 +26,23 @@ const ListModel = mongoose.model('List', listSchema);
 
 // Find all lists
 const findAllLists = () => {
-  console.log('find all db')
+  console.log('find all db triggered')
   return ListModel.find();
 }
 
 // Find one lists
-const findOneList = id => ListModel.find({ listId: id });
+const findOneList = (id) => {
+  console.log('find ONE db triggered with id: ', id)
+  return ListModel.find({ listId: id });
+}
 
 // Create new List
 const insertOneList = (list, cb) => ListModel.create(list, cb);
 
 // Inset new item to list
-const insertOneItem = id => {
-  return findOneList(id)
+const insertOneItem = (id, obj) => {
+  console.log('insertOneItem triggered on list id: ', id)
+  return ListModel.update({listId: id}, {$push: {items: obj}})
 }
 
 // Delete List

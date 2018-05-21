@@ -24,8 +24,6 @@ const styles = {
   },
 };
 
-
-// function NewItem(props) {
 class NewItem extends React.Component<Props> {
 	constructor(props) {
     super(props);
@@ -47,8 +45,7 @@ class NewItem extends React.Component<Props> {
   }
 
   _submitItem(listId, itemId, store, item, qty, type) {
-    console.log('listId is, ', listId);
-    console.log('itemId is, ', itemId);
+    this._clearStates();
     axios.patch(`/api/item/${listId}`, {
       itemId: itemId,
       store: store,
@@ -57,9 +54,8 @@ class NewItem extends React.Component<Props> {
       type: type,
     })
     .then((data) => {
-      // double check this works
-      this._clearStates();
-      console.log(data);
+      // this._clearStates();
+      this.props.getList(this.props.listId);
     })
     .catch((err) => {
       console.log(err);
