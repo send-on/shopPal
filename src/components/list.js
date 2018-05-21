@@ -16,7 +16,7 @@ const List = ({ list }) => (
       </Button> */}
     </div>
     <div className="list-item-container">
-      <NewItem />
+      <NewItem listId = {list.listId} />
       {list.items.map((item, index) =>
        <Item
          className="list-item-col"

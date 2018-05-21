@@ -7,8 +7,12 @@
   display: block;
 }
 
-.item-image{
+.item-image {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+}
+
+.item-input-box {
+  
 }

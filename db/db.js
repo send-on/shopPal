@@ -1,11 +1,10 @@
+const mongoose = require('mongoose');
 
 const HOST = 'localhost';
-const USER = 'user';
-const PASSWORD = 'password';
-const DATABASE = 'database';
+const PORT = 27017;
+const DATABASE = 'shoppal';
 
-const mongoose = require('mongoose');
-const mongoUrl = `mongodb://${HOST}/${DATABASE}`;
+const mongoUrl = `mongodb://${HOST}:${PORT}/${DATABASE}`;
 
 mongoose.connect(mongoUrl); // Try localhost first
 // mongoose.connect(mongoUrl); // Try localhost first
@@ -16,13 +15,43 @@ mongoose.connection.on('error', () => {
   console.log('error');
 });
 
-const mySchema = mongoose.Schema({
-
+const listSchema = mongoose.Schema({
+  listId: { type: Number , unique: true },
+  listTitle: String,
+  createdAt: { type: Date , default: Date.now },
+  items: { type : Array , "default" : [] },
 })
 
+const ListModel = mongoose.model('List', listSchema);
 
+// Find all lists
+const findAllLists = () => {
+  console.log('find all db')
+  return ListModel.find();
+}
 
-// module.exports = connection;
+// Find one lists
+const findOneList = id => ListModel.find({ listId: id });
+
+// Create new List
+const insertOneList = (list, cb) => ListModel.create(list, cb);
+
+// Inset new item to list
+const insertOneItem = id => {
+  return findOneList(id)
+}
+
+// Delete List
+const clearDb = (cb) => ListModel.remove({}, cb);
+
+module.exports = {
+  ListModel,
+  findOneList,
+  findAllLists,
+  insertOneList,
+  insertOneItem,
+  clearDb
+};
 
 
 // const restaurantSchema = mongoose.Schema({

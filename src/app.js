@@ -29,16 +29,7 @@ class App extends React.Component<Props> {
 		this.state = {
 			user: 'Sign in',
 			window: 'about',
-			lists: [
-				{title: "Coworkers", items: [{id: 1, store: 'Safeway', item: "Juice", type: "beverage"},
-					{id: 2, store: 'Safeway', item: "Bread", type: "pastry"},
-					{id: 2, store: 'Safeway', item: "Coke", type: "beverage"},
-					{id: 2, store: 'Safeway', item: "Meat", type: "meat"},
-					{id: 2, store: 'Safeway', item: "Cookies", type: "dessert"},
-				 	{id: 3, store: 'Safeway', item: "Cats", type: "misc"}]},
-				{title: "Roomates", items: [{id: 1, store: 'Safeway', item: "Juice", type: "beverage"}]}
-			]
-		}
+		};
 		this._handleWindowChange = this._handleWindowChange.bind(this);
 	}
 
@@ -46,7 +37,6 @@ class App extends React.Component<Props> {
 	}
 
 	_handleWindowChange(tab) {
-		console.log(tab)
 		this.setState({
 			window: tab
 		})
@@ -59,7 +49,7 @@ class App extends React.Component<Props> {
         component = <About myState={this.state.window}/>
         break;
       case 'lists':
-        component = <Lists lists={this.state.lists}/>
+        component = <Lists />
         break;
 			case 'groups':
         // component = <Groups groups={this.state.stories}/>
