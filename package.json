@@ -5,6 +5,8 @@
     "start:dev": "nodemon server/server.js",
     "build": "webpack -p --config webpack.config.js --progress --profile --colors",
     "build:dev": "webpack -d --watch --colors",
+    "seed" : "node seed/seedDummyData.js",
+    "docker": "npm run build && npm run seed && npm run start",
     "dev": "./node_modules/.bin/webpack-dev-server -d --host 0.0.0.0 --config webpack.config.js --content-base src/ --colors --hot --progress --inline --watch"
   },
   "dependencies": {

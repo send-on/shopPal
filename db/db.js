@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const HOST = 'localhost';
+// const HOST = 'mongo'; // docker
 const PORT = 27017;
 const DATABASE = 'shoppal';
 
