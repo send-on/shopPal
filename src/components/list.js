@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import { Button } from 'react-materialize';
 import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
 import NewItem from './newitem';
 const axios = require('axios');
+
 
 import Item from './item';
 require('../css/list.css');
@@ -47,10 +47,7 @@ class List extends React.Component<Props> {
   render() {
     return (
       <div className="list-container">
-        <div className="list-title">List: {this.state.list.title}
-          {/* <Button variant="fab" color="primary" aria-label="add">
-            <AddIcon />
-          </Button> */}
+        <div className="list-title">List: {this.state.list.listTitle}
         </div>
         <div className="list-item-container">
           <NewItem listId = {this.state.list.listId}
@@ -69,28 +66,5 @@ class List extends React.Component<Props> {
     )
   }
 }
-
-
-
-
-// const List = ({ list }) => (
-//   <div className="list-container">
-//     <div className="list-title">List: {list.title}
-//       {/* <Button variant="fab" color="primary" aria-label="add">
-//         <AddIcon />
-//       </Button> */}
-//     </div>
-//     <div className="list-item-container">
-//       <NewItem listId = {list.listId} />
-//       {list.items.map((item, index) =>
-//        <Item
-//          className="list-item-col"
-//          key={index}
-//          item={item}
-//        />
-//      )}
-//    </div>
-//   </div>
-// )
 
 module.exports = List

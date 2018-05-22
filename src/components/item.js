@@ -27,6 +27,7 @@ class Item extends React.Component<Props> {
 	constructor(props) {
 		super(props);
     this.state = {
+      itemId: this.props.item.itemId,
       store: this.props.item.store,
       item: this.props.item.item,
       quantity: this.props.item.quantity,
@@ -42,10 +43,10 @@ class Item extends React.Component<Props> {
     if (newQuantity <= 0) {
       newQuantity = 0;
     }
+
     if (!this.state.wait) {
       const context = this;
       setTimeout(() => {
-        alert(this.state.quantity);
         context.setState({wait: false});
         context.props.modifyQuantityServer(this.props.item.itemId, this.state.quantity)
       }, 1000);
@@ -59,9 +60,7 @@ class Item extends React.Component<Props> {
 
   render() {
     const { classes, item } = this.props;
-
-    let minusOne = this.state.exists ?  'Remove One' : 'Delete Item'
-
+    let minusOne = (this.state.quantity > 1 ) ?  'Remove One' : 'Delete Item'
     let imageUrl = 'https://s3-us-west-1.amazonaws.com/shoppal/bowser.jpg';
       if (this.state.type === 'meat') {
         imageUrl = 'https://s3-us-west-1.amazonaws.com/shoppal/meat.png'
@@ -71,6 +70,8 @@ class Item extends React.Component<Props> {
         imageUrl = 'https://s3-us-west-1.amazonaws.com/shoppal/bread.jpg'
       } else if (this.state.type === 'beverage') {
         imageUrl = 'https://s3-us-west-1.amazonaws.com/shoppal/juice.jpg'
+      } else if (this.state.type === 'chips') {
+        imageUrl = 'https://s3-us-west-1.amazonaws.com/shoppal/chips.jpg'
       }
 
     return (

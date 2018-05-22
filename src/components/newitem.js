@@ -29,7 +29,7 @@ class NewItem extends React.Component<Props> {
     super(props);
     this.state = {
       listId: this.props.listId,
-      itemId: 7,
+      itemId: 8,
       store: '',
       item: '',
       quantity: '',
@@ -38,10 +38,25 @@ class NewItem extends React.Component<Props> {
     this._handleChange = this._handleChange.bind(this);
     this._submitItem = this._submitItem.bind(this);
     this._clearStates = this._clearStates.bind(this);
+    this._generateItemId = this._generateItemId.bind(this);
   }
+
+  componentDidMount() {
+    this._generateItemId();
+	}
 
   _handleChange(e) {
     this.setState({[e.target.name]: e.target.value});
+  }
+
+  _generateItemId() {
+    let text = "";
+    const possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    for (var i = 0; i < 5; i++) text += possible.charAt(Math.floor(Math.random() * possible.length));
+    this.setState({
+      itemId: text
+    })
+    return text;
   }
 
   _submitItem(listId, itemId, store, item, qty, type) {
@@ -68,6 +83,7 @@ class NewItem extends React.Component<Props> {
       item: '',
       quantity: '',
       type: '',
+      itemId: this._generateItemId()
     })
   }
 
