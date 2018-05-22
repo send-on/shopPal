@@ -47,18 +47,32 @@ const insertOneItem = (id, obj) => {
 
 // Modify quantity
 const modifyQuantityItem = (listId, obj) => {
-
   itemId = obj.itemId;
   quantity = obj.quantity;
-  console.log('db itemId, ', itemId)
-  console.log('db quantity, ', quantity)
-  return ListModel.findOneAndUpdate(
-    {
-      "listId": listId,
-      "items.itemId": itemId
-    },
-    {"$set": {"items.$.quantity": quantity}}
-  )
+  if (quantity > 0) {
+    return ListModel.findOneAndUpdate(
+      {
+        "listId": listId,
+        "items.itemId": itemId
+      },
+      {"$set": {"items.$.quantity": quantity}}
+    )
+  } else if (quantity <= 0) {
+    return ListModel.findOneAndUpdate(
+      {
+        "listId": listId,
+      },
+      {"$pull": {"items": {"itemId": itemId}}},
+      function(err, data) {
+        if (err) {
+          console.log('err', err);
+        } else {
+          console.log('success', data);
+        }
+      }
+    )
+  }
+
 }
 
 // Delete List

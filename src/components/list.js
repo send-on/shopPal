@@ -30,15 +30,14 @@ class List extends React.Component<Props> {
 
   modifyQuantityServer(itemId, quantity) {
     const listId = this.props.list.listId
-    console.log('modifyQuantityServer, listId: ', listId);
-    console.log('modifyQuantityServer, itemId: ', itemId);
-    console.log('modifyQuantityServer, quantity: ', quantity);
+    const context = this;
     axios.patch(`/api/itemqty/${listId}`, {
       itemId: itemId,
       quantity: quantity
     })
     .then((data) => {
-      console.log(data);
+      context.getList(listId);
+      console.log('success data ', data);
     })
     .catch((err) => {
       console.log(err);

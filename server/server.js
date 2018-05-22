@@ -39,7 +39,6 @@ app.patch('/api/itemqty/:listId', (req, res) => {
   const listId = req.params.listId;
   db.modifyQuantityItem (listId, req.body)
   .then((data) => {
-
     res.send('success patch:' + data)
   })
   .catch((err) => {
