@@ -7,6 +7,10 @@
 > Instead of asking your friends and coworkers one by one and waiting for them decide what to get, 
 > just send them a link and have them add items into your group shopping lists.
 
+![alt text](https://i.imgur.com/hbK8DhS.png)
+![alt text](https://i.imgur.com/lx8kVLt.png)
+
+
 ## Development
 ```sh
 TO DO LIST
