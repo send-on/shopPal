@@ -4,6 +4,21 @@ const parser = require('body-parser');
 
 const app = express();
 const PORT = 3000;
+//
+// const firebase = require("firebase");
+//
+//
+//
+// const config = {
+//   apiKey: "AIzaSyClucTxjh5554-624-Ihd6GbYEs-L0dM0c",
+//   authDomain: "shop-pal-87d94.firebaseapp.com",
+//   databaseURL: "https://shop-pal-87d94.firebaseio.com",
+//   storageBucket: "",
+// };
+// firebase.initializeApp(config);
+
+
+
 
 const db = require('../db/db.js')
 
