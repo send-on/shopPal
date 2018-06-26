@@ -1,2 +1,4 @@
 node_modules
 dist/js/app.js
+serviceAccountKey.json
+firebaseConfig.json

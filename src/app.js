@@ -21,12 +21,7 @@ import Lists from './components/lists';
 
 
 import firebase from 'firebase';
-
-
-var config = {
-  
-};
-
+var config = require('../firebaseConfig.json')
 const firebaseApp = firebase.initializeApp(config);
 
 
@@ -60,6 +55,8 @@ class App extends React.Component<Props> {
 		firebaseApp.auth().signInWithPopup(googleAuthProvider)
 			.then((data) => {
 				console.log(data);
+				const idToken = data.credential.idToken
+				localStorage.setItem('firebase_idToken', idToken)
 				this.setState({
 					user: data.user.displayName
 				})

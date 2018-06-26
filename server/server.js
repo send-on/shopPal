@@ -1,29 +1,27 @@
 const express = require('express');
 const path = require('path');
 const parser = require('body-parser');
-
 const app = express();
 const PORT = 3000;
-//
-// const firebase = require("firebase");
-//
-//
-//
-// const config = {
-//   apiKey: "AIzaSyClucTxjh5554-624-Ihd6GbYEs-L0dM0c",
-//   authDomain: "shop-pal-87d94.firebaseapp.com",
-//   databaseURL: "https://shop-pal-87d94.firebaseio.com",
-//   storageBucket: "",
-// };
-// firebase.initializeApp(config);
+const db = require('../db/db.js');
 
+var admin = require("firebase-admin");
+var serviceAccount = require("../serviceAccountKey.json");
 
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://shop-pal-87d94.firebaseio.com"
+});
 
+// Create auth middleware
+const isAuthenticated = (req, res, next) => {
+  // check if user is logged inspect
+  // if yes, attach user to request obj and call next
+  // else, send to login with msg to login
 
-const db = require('../db/db.js')
+}
 
 app.use(parser.json());
-
 app.use(express.static(path.join(__dirname, '../dist')))
 
 // Get one list

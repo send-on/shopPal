@@ -1,20 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Icon, Button } from 'react-materialize';
-// import * as firebase from 'firebase';
-//
-// const config = {
-//   apiKey: "AIzaSyClucTxjh5554-624-Ihd6GbYEs-L0dM0c",
-//   authDomain: "shop-pal-87d94.firebaseapp.com",
-//   databaseURL: "https://shop-pal-87d94.firebaseio.com",
-//   storageBucket: "",
-// };
-//
-// const fb = firebase
-//   .initializeApp(config)
-//   .database()
-//   .ref();
-
 
 require('../css/header.css');
 
