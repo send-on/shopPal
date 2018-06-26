@@ -5,7 +5,7 @@
     "start:dev": "nodemon server/server.js",
     "build": "webpack -p --config webpack.config.js --progress --profile --colors",
     "build:dev": "webpack -d --watch --colors",
-    "seed" : "node seed/seedDummyData.js",
+    "seed": "node seed/seedDummyData.js",
     "docker": "npm run build && npm run seed && npm run start",
     "dev": "./node_modules/.bin/webpack-dev-server -d --host 0.0.0.0 --config webpack.config.js --content-base src/ --colors --hot --progress --inline --watch"
   },
@@ -17,6 +17,8 @@
     "cookie-parser": "~1.0.1",
     "ejs": "^2.3.4",
     "express": "^4.13.3",
+    "firebase": "^5.1.0",
+    "firebase-admin": "^5.12.1",
     "loglevel": "^1.4.1",
     "mongoose": "^5.1.1",
     "path": "^0.12.7",

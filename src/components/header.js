@@ -4,13 +4,13 @@ import { Icon, Button } from 'react-materialize';
 
 require('../css/header.css');
 
-const Header = ({ _handleWindowChange, user}) => (
+const Header = ({ _handleWindowChange, user, signInWithGoogle}) => (
   <div className="main-container">
     <div className="header-container">
       <div className="header-left">
         <div className="header-icon">
           <Icon small>perm_identity</Icon>
-          <div className="header-text">{user}</div>
+          <div className="header-text" onClick={() => signInWithGoogle()}>{user}</div>
         </div>
 
       </div>

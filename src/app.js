@@ -18,6 +18,13 @@ import Header from './components/header';
 import AnnouncementBanner from './components/announcement';
 import Lists from './components/lists';
 
+
+
+import firebase from 'firebase';
+var config = require('../firebaseConfig.json')
+const firebaseApp = firebase.initializeApp(config);
+
+
 // css
 require('./css/app.css');
 
@@ -31,6 +38,7 @@ class App extends React.Component<Props> {
 			window: 'lists',
 		};
 		this._handleWindowChange = this._handleWindowChange.bind(this);
+		this.signInWithGoogle = this.signInWithGoogle.bind(this);
 	}
 
 	componentDidMount() {
@@ -40,6 +48,22 @@ class App extends React.Component<Props> {
 		this.setState({
 			window: tab
 		})
+	}
+
+	signInWithGoogle() {
+		var googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+		firebaseApp.auth().signInWithPopup(googleAuthProvider)
+			.then((data) => {
+				console.log(data);
+				const idToken = data.credential.idToken
+				localStorage.setItem('firebase_idToken', idToken)
+				this.setState({
+					user: data.user.displayName
+				})
+			})
+			.catch((err) => {
+				console.log(err);
+			})
 	}
 
 	render() {
@@ -59,6 +83,7 @@ class App extends React.Component<Props> {
 			<div className="main-container">
 				<Header
 					user={this.state.user}
+					signInWithGoogle={this.signInWithGoogle}
 					_handleWindowChange={this._handleWindowChange}/>
 				<AnnouncementBanner />
 				{component}
