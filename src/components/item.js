@@ -74,6 +74,7 @@ class Item extends React.Component<Props> {
         imageUrl = 'https://s3-us-west-1.amazonaws.com/shoppal/chips.jpg'
       }
 
+
     return (
       <div>
         <Card className={classes.card}>

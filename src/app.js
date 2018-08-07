@@ -3,22 +3,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Footer } from 'react-materialize'
-// import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
-// const {
-// 	browserHistory,
-//   IndexRoute,
-//   // Route,
-//   // Router,
-// } = require('react-router');
 
 // components
 import About from './components/about';
 import Header from './components/header';
 import AnnouncementBanner from './components/announcement';
 import Lists from './components/lists';
-
-
 
 import firebase from 'firebase';
 var config = require('../firebaseConfig.json')
